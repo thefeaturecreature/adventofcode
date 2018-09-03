@@ -1,50 +1,37 @@
+const aoc = require('../lib/aoc.js');
+const instruct = aoc.inputfile('./day09.txt');
 
-/*
-set fsize [file size "day09.txt"]
-set fp [open "day09.txt" r]
-set stream [read $fp $fsize]
-close $fp
-
-set layer 1
-set total 0
-set streamlen [string length $stream]
-set toggleopen false
-set garbage false 
-
-for {set x 0} {$x < $streamlen} {incr x} {
-  set currentchar [string index $stream $x]
-
-  switch $currentchar {
-    \! {
-      incr x
-    }
-    \< {
-      if {!$garbage} {
-        set garbage true
+let layer = 1, total = 0;
+let garbage = false, toggleopen = false;
+for (i = 0; i < instruct.length; i++){
+  let item = instruct[i]
+  switch(item){
+    case '!':
+      i++;
+      break;
+    case '<':
+      garbage = true;
+      break;
+    case '>':
+      garbage = false;
+      break;
+    case '{':
+      if(toggleopen && !garbage) {
+        layer++;
+        total += layer; 
+      } else if(!toggleopen && !garbage) {
+        total += layer;
+        toggleopen = true;
       }
-    }
-    \> {
-      if {$garbage} {
-        set garbage false
+      break;
+    case '}':
+      if(toggleopen && !garbage) {
+        toggleopen = false 
+      } else if(!toggleopen && !garbage) {
+        layer--
       }
-    }
-    \{ {
-      if {$toggleopen && !$garbage} {
-        incr layer
-        incr total $layer
-      } elseif {!$toggleopen && !$garbage} {
-        incr total $layer
-        set toggleopen true
-      } 
-    }
-    \} {
-      if {$toggleopen && !$garbage} {
-          set toggleopen false
-      } elseif {!$toggleopen && !$garbage} {
-          incr layer -1      
-      }
-    }
+      break;
   }
 }
-puts $total
-*/
+
+console.log(total)

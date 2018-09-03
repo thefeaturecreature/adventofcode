@@ -1,3 +1,54 @@
+const aoc = require('../lib/aoc.js');
+const instruct = aoc.inputfile('./day10.txt');
+
+let listsize = 256, skipsize = 0, circle = [], current = 0;
+let instructions = instruct.split(' ');
+
+for (i=0; i<listsize; i++){
+	circle.push(i);
+}
+console.log(circle);
+console.log(circle[0] * circle[1]);
+
+instructions.forEach( steps => {
+	let steps_to_end = listsize - current;
+	let overflow = steps - steps_to_end;
+
+	let newcurrent = current + (steps - 1);
+
+	if (overflow > 0) {
+		let frontstep = overflow - 1;
+	}
+
+})
+let a = 65 ^ 27 ^ 9 ^ 1 ^ 4 ^ 3 ^ 40 ^ 50 ^ 91 ^ 7 ^ 6 ^ 0 ^ 2 ^ 5 ^ 68 ^ 22;
+console.log(a)
+
+// .toString(16).padStart(2, '0')
+
+/*
+foreach steps $instructions {
+	if {$remainder > 0} {
+		set frontlist [expr {[lrange $circle 0 $frontstop]}]
+		set endlist [expr {[concat $endlist $frontlist]}]
+	}
+
+	foreach j [expr {[lreverse $endlist]}] {
+		lset circle $current $j
+		if {($current + 1) >= $listsize} {
+			set current 0
+		} else {
+			set current [expr {$current + 1}]
+		}
+	}
+	if {$current + $offset >= $listsize} {
+		set current [expr {($offset + $current) - $listsize}]
+	} else {
+		set current [expr {$current + $offset}]
+	}
+	incr offset
+*/
+
 
 /*
 set fsize [file size "day10.txt"]
