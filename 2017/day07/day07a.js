@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const spread = aoc.inputfile('./day07.txt', true);
+const spread = inputfile('./day07.txt', true);
 
 const parents = spread.filter(x => x.includes('->'))
 const children = parents.map(i => i.slice(i.indexOf('->') + 3, i.length));

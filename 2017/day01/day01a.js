@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const secret = aoc.inputfile('./day01.txt');
+const secret = inputfile('./day01.txt');
 const jump = 1;
 
 let day1 = source => Array.from(source)

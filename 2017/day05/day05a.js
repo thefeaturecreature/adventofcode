@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const links = aoc.inputfile('./day05.txt', true).map( Number );
+const links = inputfile('./day05.txt', true).map( Number );
 
 let current = 0, 
 		instruction = 0, 

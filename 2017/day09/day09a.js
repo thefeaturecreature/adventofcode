@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const instruct = aoc.inputfile('./day09.txt');
+const instruct = inputfile('./day09.txt');
 
 let layer = 1, total = 0;
 let garbage = false, toggleopen = false;

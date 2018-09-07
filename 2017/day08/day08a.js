@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const instruct = aoc.inputfile('./day08.txt', true);
+const instruct = inputfile('./day08.txt', true);
 
 let pocket = {}
 instruct.forEach(elements => {
