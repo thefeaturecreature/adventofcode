@@ -1,100 +1,45 @@
 // TODO: Finish
-
 const aoc = require('../lib/aoc.js');
-const instruct = aoc.inputfile('./day10.txt');
+//const instruct = inputfile('./day10.txt');
+const instruct = '1,2,3'
+const salt = [17, 31, 73, 47, 23]
 
-let listsize = 256, skipsize = 0, circle = [], current = 0;
-let instructions = instruct.split(' ');
+let instructmod = '';
+for (let v of instruct) {
+	instructmod += (v == ","?":":"") + v + (v == ","?":":"")
+  console.log(v);
+}
 
-for (i=0; i<listsize; i++){
+instructions = instructmod.split(':').map(step => {
+	return step.charCodeAt();
+})
+
+let circle = [];
+for (i=0; i<256; i++){
 	circle.push(i);
 }
-console.log(circle);
-console.log(circle[0] * circle[1]);
 
-instructions.forEach( steps => {
-	let steps_to_end = listsize - current;
-	let overflow = steps - steps_to_end;
-
-	let newcurrent = current + (steps - 1);
-
-	if (overflow > 0) {
-		let frontstep = overflow - 1;
-	}
-
-})
-let a = 65 ^ 27 ^ 9 ^ 1 ^ 4 ^ 3 ^ 40 ^ 50 ^ 91 ^ 7 ^ 6 ^ 0 ^ 2 ^ 5 ^ 68 ^ 22;
-console.log(a)
-
-// .toString(16).padStart(2, '0')
+// stepknots = (array,steps, skipsize = 0, current = 0)
+console.log(instructions.concat(salt))
 
 /*
-foreach steps $instructions {
-	if {$remainder > 0} {
-		set frontlist [expr {[lrange $circle 0 $frontstop]}]
-		set endlist [expr {[concat $endlist $frontlist]}]
-	}
+Run a total of 64 rounds, using the same length sequence in each round. 
+The current position and skip size should be preserved between rounds. 
 
-	foreach j [expr {[lreverse $endlist]}] {
-		lset circle $current $j
-		if {($current + 1) >= $listsize} {
-			set current 0
-		} else {
-			set current [expr {$current + 1}]
-		}
-	}
-	if {$current + $offset >= $listsize} {
-		set current [expr {($offset + $current) - $listsize}]
-	} else {
-		set current [expr {$current + $offset}]
-	}
-	incr offset
+Once the rounds are complete, you will be left with the numbers from 0 to 255 in some order, 
+called the sparse hash. 
+Your next task is to reduce these to a list of only 16 numbers called the dense hash. 
+To do this, use numeric bitwise XOR to combine each consecutive block of 16 numbers 
+in the sparse hash (there are 16 such blocks in a list of 256 numbers). 
+
+Finally, the standard way to represent a Knot Hash is as a single hexadecimal string; 
+the final output is the dense hash in hexadecimal notation. 
+Because each number in your dense hash will be between 0 and 255 (inclusive), 
+always represent each number as two hexadecimal digits (including a leading zero as necessary). 
+So, if your first three numbers are 64, 7, 255, they correspond to the hexadecimal numbers 40, 07, ff, 
+and so the first six characters of the hash would be 4007ff. Because every Knot Hash is sixteen such numbers, 
+the hexadecimal representation is always 32 hexadecimal digits (0-f) long.
 */
 
-
-/*
-set fsize [file size "day10.txt"]
-set fp [open "day10.txt" r]
-set instructions [read $fp $fsize]
-close $fp
-
-set listsize 256
-set circle {0}
-set current 0
-set offset 0
-
-for {set x 1} {$x < $listsize} {incr x} { lappend circle $x }
-set instructions [expr {[split $instructions ',']}]
-
-foreach steps $instructions {
-	set steps_to_end [expr {$listsize - $current}]
-	set remainder [expr {$steps - $steps_to_end}]
-	set frontstop [expr {$remainder - 1}]
-	set endstop [expr {$current + ($steps - 1)}]
-
-	set endlist [expr {[lrange $circle $current $endstop]}]
-
-	if {$remainder > 0} {
-		set frontlist [expr {[lrange $circle 0 $frontstop]}]
-		set endlist [expr {[concat $endlist $frontlist]}]
-	}
-
-	foreach j [expr {[lreverse $endlist]}] {
-		lset circle $current $j
-		if {($current + 1) >= $listsize} {
-			set current 0
-		} else {
-			set current [expr {$current + 1}]
-		}
-	}
-	if {$current + $offset >= $listsize} {
-		set current [expr {($offset + $current) - $listsize}]
-	} else {
-		set current [expr {$current + $offset}]
-	}
-	incr offset
-
-}
-puts [expr {[lindex $circle 0] * [lindex $circle 1]}]
-
-*/
+// let a = 65 ^ 27 ^ 9 ^ 1 ^ 4 ^ 3 ^ 40 ^ 50 ^ 91 ^ 7 ^ 6 ^ 0 ^ 2 ^ 5 ^ 68 ^ 22;
+// console.log(a);
