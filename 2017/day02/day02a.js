@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const spread = aoc.inputfile('./day02.txt', true);
+const spread = inputfile('./day02.txt', true);
 
 let day2 = lines => 
 Array.from(lines)
