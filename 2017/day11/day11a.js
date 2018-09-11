@@ -1,39 +1,35 @@
-/*
-set fsize [file size "day11.txt"]
-set fp [open "day11.txt" r]
-set instructions [read $fp $fsize]
-close $fp
+const aoc = require('../lib/aoc.js');
+const instruct = inputfile('./day11.txt');
+let instructions = instruct.split(',');
 
-set instructions [expr {[split $instructions ',']}]
-set x 0
-set y 0
-foreach j $instructions {
-  if {[string length $j] == 1} {
-    set y [expr {$j == "n"? $y - 1: $y + 1}]
+let x = 0
+let y = 0
+let z = 0
+instructions.forEach(step => {
+  if (step.length == 1){
+    if (step == "n"){
+      y -= 1
+    } else {
+      y += 1
+    }
   } else {
-    if {[string range $j 0 0] == "n" && $x % 2 != 0} {
-      set y [expr {$y - 1}]      
-    } 
+    if (step.charAt(0) == "n" && x % 2 != 0) {
+      y -= 1
+    } else if (step.charAt(0) == "s" && x % 2 != 0){
+      y += 1
+    }
+    x += (step.charAt(1) == "e")? +1: -1;
+  }
     
-    if {[string range $j 0 0] == "s" && $x % 2 == 0} {
-      set y [expr {$y + 1}]   
-    } 
-    set x [expr {[string range $j 1 1] == "e"? $x + 1: $x - 1}]
-  }
-}
-set ax [expr { abs($x) }]
-set ay [expr { abs($y) }]
-if {$ax > $ay} {
-  if {$ay < round($ax/2)} {
-    set z $ax
-  } else {
-  set z [expr {$ax/2 + $ay}]
-  }
+})
+let ax = Math.abs(x);
+let ay = Math.abs(y);
 
-} elseif {$ay > $ax} {
-  set z [expr {($ay - $ax/2) + $ax}]
+if(ax > ay) {
+  if (ay < Math.round(ax/2)) z = ax
+} else if (ay > ax){
+  z = (ay - ax/2) + ax;
 } else {
-  set z [expr {$ax * 1.5}]
+  z = ax * 1.5
 }
- puts $z
- */
+console.log(z)
