@@ -18,9 +18,9 @@ knothash = (array, current, step) => {
   if(sliceend <= asize) {
     let lastend = asize;
 
-    let first 	= (current != 0)? array.slice(0,current) : [];
-    let middle 	= (step > 0)? array.slice(current, sliceend) : [];
-    let last 	= (sliceend <= asize)? array.slice(sliceend,lastend) : [];
+    let first = (current != 0)? array.slice(0,current) : [];
+    let middle = (step > 0)? array.slice(current, sliceend) : [];
+    let last = (sliceend <= asize)? array.slice(sliceend,lastend) : [];
 
     return first.concat(middle.reverse(),last);
   } else {
@@ -39,8 +39,7 @@ knothash = (array, current, step) => {
   }
 }
 
-stepknots = (array,steps) => {
-  let skipsize = 0, current = 0;
+stepknots = (array,steps, skipsize = 0, current = 0) => {
   steps.forEach(step => {
     step = parseInt(step);
     array = knothash(array,current,step);
