@@ -1,10 +1,30 @@
-/*
-set fsize [file size "day13.txt"]
-set fp [open "day13.txt" r]
-set levels [read $fp $fsize]
-close $fp
+const aoc = require('../lib/aoc.js');
+const levels = inputfile('./day13.txt');
+let totals = 0;
 
-set levels [split $levels "\n"]
+levels.split('\n');
+
+let heartbeat = (size,ticks) => {
+  let col = Math.trunc(ticks / size)
+  let uncol = ticks / size
+  let rem = (ticks % size);
+  console.log('---')  
+  console.log(`Tick: ${ticks}`)
+  console.log(`Column: ${col} of ${uncol}`)
+  console.log(`Remainder: ${rem}`)
+  if(col % 2 == 0) {
+    return rem;
+  } else {
+    return size - rem
+  }
+}
+let s2 = 3
+let ender = 6
+for(i=0;i<ender;i++){
+  console.log(`Heartbeat: ${heartbeat(s2,i)}`)
+}
+
+/*
 set total 0
 
 for {set x 0} {$x < [llength $levels]} {incr x} {
