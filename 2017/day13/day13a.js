@@ -5,21 +5,24 @@ let totals = 0;
 levels.split('\n');
 
 let heartbeat = (size,ticks) => {
-  let col = Math.trunc(ticks / size)
-  let uncol = ticks / size
-  let rem = (ticks % size);
+  let col = Math.trunc((ticks - 1) / (size - 1))
+  let rem = ticks % size ;
+  let maxind = size - 1;
+
   console.log('---')  
   console.log(`Tick: ${ticks}`)
-  console.log(`Column: ${col} of ${uncol}`)
-  console.log(`Remainder: ${rem}`)
+  console.log(`Col: ${col}`)
+  console.log(`Rem: ${rem}`)
+
+  if(col == 0) return rem;
   if(col % 2 == 0) {
-    return rem;
+   // return rem;
   } else {
-    return size - rem
+    return (maxind - 1 - rem)
   }
 }
-let s2 = 3
-let ender = 6
+let s2 = 4
+let ender = 15
 for(i=0;i<ender;i++){
   console.log(`Heartbeat: ${heartbeat(s2,i)}`)
 }
