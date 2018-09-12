@@ -1,41 +1,30 @@
-/*
-set fsize [file size "day16.txt"]
-set fp [open "day16.txt" r]
-set instructions [read $fp $fsize]
-close $fp
+const aoc = require('../lib/aoc.js');
+const instructions = inputfile('./day16.txt');
 
-set instructions [split $instructions ","]
-set stage {a b c d e f g h i j k l m n o p}
-
-foreach i $instructions {
-  switch [string index $i 0] {
-      s {
-        set spin [string range $i 1 10]
-        set offset [expr {16 - $spin}]
-        set swap {}
-        for {set x 0} {$x < $spin} {incr x} {
-          lset swap $x [lindex $stage  [expr {$x + $offset}]]
-        }
-        set stage [concat $swap [lrange $stage 0 [expr {$offset - 1}]]]
+runpage = (stage) => {
+  stage = stage.split('');
+  instructions
+    .split(',')
+    .forEach(instruction => {
+      let a = instruction.slice(1).split('/')[0]
+      let b = instruction.slice(1).split('/')[1]
+      switch (instruction.charAt(0)){
+        case 's':
+          stage = stage.slice(parseInt(stage.length - a)).concat(stage.slice(0, parseInt(stage.length - a)))
+          break;
+        case 'x':
+          [stage[a], stage[b]] = [stage[b], stage[a]]
+          break;
+        case 'p':
+        r = stage.indexOf(a);
+        s = stage.indexOf(b);
+        [stage[r], stage[s]] = [stage[s], stage[r]]
+        break;
       }
-      x {
-        set exchange [split [string range $i 1 10] "/"]
-        set first [lindex $stage [lindex $exchange 0]]
-        set last [lindex $stage [lindex $exchange 1]]
-        lset stage [lindex $exchange 0] $last
-        lset stage [lindex $exchange 1] $first
-      }
-      p {
-        set partner [split [string range $i 1 10] "/"]
-        set indexfirst [lsearch $stage [lindex $partner 0]]
-        set indexlast [lsearch $stage [lindex $partner 1]]
-        set first [lindex $stage $indexfirst]
-        set last [lindex $stage $indexlast]
-        lset stage $indexfirst $last
-        lset stage $indexlast $first       
-      }
-  }  
+    }
+    )
+  return stage.join().replace(/\,/g,'')
 }
 
-puts $stage
-*/
+let list = "abcdefghijklmnop"
+console.log(runpage(list))
