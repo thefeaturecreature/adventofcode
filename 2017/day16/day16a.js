@@ -2,6 +2,7 @@ const aoc = require('../lib/aoc.js');
 const instructions = inputfile('./day16.txt');
 
 runpage = (stage) => {
+  console.log(stage)
   stage = stage.split('');
   instructions
     .split(',')
