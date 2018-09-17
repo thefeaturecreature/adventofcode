@@ -53,3 +53,7 @@ stepknots = (array,steps, skipsize = 0, current = 0) => {
   })
   return array;
 }
+
+roundthesun = (length, start, offset) => {
+  return (start + offset) % length;
+}
