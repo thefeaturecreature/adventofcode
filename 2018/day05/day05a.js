@@ -14,4 +14,3 @@ while (true) {
   if(prevcycle == polymer) break;
 }
 console.log(polymer.length);
-
