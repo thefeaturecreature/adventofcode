@@ -1,7 +1,6 @@
 const aoc = require('../lib/aoc.js');
 const presents = inputfile('./day02.txt', true);
-let swap = new Array(),
-    accum = 0;
+let accum = 0;
 
 ribbonsize = dimensions => {
     dimensions = dimensions.split("x")
@@ -16,7 +15,9 @@ ribbon = presents.map(a => {
 })
 .reduce((accum, part) => accum + part)
 console.log(ribbon)
-console.log(ribbonsize("2x3x4"))
+
+// console.log(ribbonsize("2x3x4"))
 //2x3x4 requires 34 feet.
-console.log(ribbonsize("1x1x10"))
+
+// console.log(ribbonsize("1x1x10"))
 //1x1x10 requires 14 feet.
