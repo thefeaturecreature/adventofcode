@@ -19,7 +19,6 @@ sortlist.forEach(word => {
         })
     })
 
-
     if (nicesplit && nicepair) nicelist.add(word)
 })
 console.log(nicelist.size)
