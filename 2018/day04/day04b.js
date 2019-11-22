@@ -29,20 +29,16 @@ timestamps.sort()
 })
 
 let accum,
-    sleephours = 0, 
     sleepdays = 0;
     sleepday = 0;
 
     topguard = 0,
-    topsleephours = 0,
     topsleepdays = 0,
     topsleepday = 0,
 
 
 guardsched.forEach((guard, index) =>{
     if(guard.length > 0) {
-    sleephours = guard.reduce((accum,day) => accum + day)
-
     sleepdays = 0;
     sleepday = 0;
 
@@ -53,8 +49,7 @@ guardsched.forEach((guard, index) =>{
         }
     
     });
-    if(sleephours > topsleephours) {
-        topsleephours = sleephours;
+    if(sleepdays > topsleepdays) {
         topguard = index;
         topsleepday = sleepday;
         topsleepdays = sleepdays;
