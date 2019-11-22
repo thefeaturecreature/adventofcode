@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const boxes = inputfile('./day02.txt', true);
+const boxes = inputfile('./day02.txt');
 
 let twos = 0;
 let threes = 0;

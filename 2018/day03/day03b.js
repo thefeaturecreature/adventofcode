@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const swatches = inputfile('./day03.txt', true);
+const swatches = inputfile('./day03.txt');
 
 let squares = new Set(),
     dupes = new Set();

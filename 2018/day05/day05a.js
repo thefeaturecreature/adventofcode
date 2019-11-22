@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-let polymer =  inputfile('./day05.txt');
+let polymer =  inputfile('./day05.txt', false);
 let regs = []
 
 for (h = 10; h <= 35; h++){

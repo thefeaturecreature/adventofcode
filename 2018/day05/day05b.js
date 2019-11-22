@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-let polymerprime =  inputfile('./day05.txt');
+let polymerprime =  inputfile('./day05.txt', false);
 let polymer = polymerprime,
     regs = new Array(),
     regletters = new Array(),

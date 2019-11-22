@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const changelist = inputfile('./day01.txt',true);
+const changelist = inputfile('./day01.txt');
 
 let freqlist = new Set(),
     found = false,
