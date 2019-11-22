@@ -8,7 +8,7 @@ lightpath.forEach(instr => {
 
     for(x = inst_parts[2];x <= inst_parts[4]; x++) {
         for(y = inst_parts[3];y <= inst_parts[5]; y++) {
-            plot = x.toString() + "x" + y.toString();
+            plot = x + "x" + y;
 
             if(lightgrid.has(plot)){ 
                 if (inst_parts[1] !== "turn on") lightgrid.delete(plot)
