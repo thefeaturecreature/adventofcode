@@ -1,19 +1,21 @@
 const aoc = require('../lib/aoc.js');
 //const lightpath = ['turn on 0,0 through 999,999','toggle 0,0 through 999,0','turn off 499,499 through 500,500']
 const lightpath = inputfile('./day06.txt', true);
-let lightgrid = new Set();
+let lightgrid = new Set(),
+    inst_parts, type, x1, x2, y1, y2;
 
 lightpath.forEach(instr => {
-    inst_parts = instr.match(/(toggle|turn on|turn off) ([\d]+),([\d]+) through ([\d]+),([\d]+)/)
+    lightsplit = /(?<type>toggle|turn on|turn off) (?<x1>[\d]+),(?<y1>[\d]+) through (?<x2>[\d]+),(?<y2>[\d]+)/;
+    parts = instr.match(lightsplit).groups
 
-    for(x = inst_parts[2];x <= inst_parts[4]; x++) {
-        for(y = inst_parts[3];y <= inst_parts[5]; y++) {
+    for(x = parts.x1; x <= parts.x2; x++) {
+        for(y = parts.y1; y <= parts.y2; y++) {
             plot = x + "x" + y;
 
             if(lightgrid.has(plot)){ 
-                if (inst_parts[1] !== "turn on") lightgrid.delete(plot)
+                if (parts.type !== "turn on") lightgrid.delete(plot)
             } else {
-                if (inst_parts[1] !== "turn off") lightgrid.add(plot)
+                if (parts.type !== "turn off") lightgrid.add(plot)
             }
 
         }
