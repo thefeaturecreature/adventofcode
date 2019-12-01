@@ -1,4 +1,4 @@
-inputfile = (inputfile, newline = false) => {
+inputfile = (inputfile, newline = true) => {
   fs = require('fs')
   output = fs.readFileSync(inputfile, 'utf8')
   return (newline)? output.split('\n') : output
