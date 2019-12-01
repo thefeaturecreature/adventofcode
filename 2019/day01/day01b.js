@@ -1,14 +1,14 @@
 const aoc = require('../lib/aoc.js');
 const masslist = inputfile('./day01.txt');
 
-recursefuel = (fuel => {
-    looping = true;
+calcfuel = (mass => Math.floor(parseInt(mass)/3) - 2);
+
+recursefuel = (mass => {
     fuelweight = 0;
-    while (looping) {
-        fuel = Math.floor(parseInt(fuel)/3) - 2;
-        if(fuel > 0) {
-            fuelweight += fuel
-        } else {looping = false}
+    let fuel = calcfuel(mass);
+    while (fuel > 0) {
+        fuelweight += fuel
+        fuel = calcfuel(fuel)
     }
     return fuelweight
 })
