@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const presents = inputfile('./day02.txt', true);
+const presents = inputfile('./day02.txt');
 let accum = 0;
 
 ribbonsize = dimensions => {

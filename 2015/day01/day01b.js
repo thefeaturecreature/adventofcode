@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const changelist = inputfile('./day01.txt');
+const changelist = inputfile('./day01.txt', false);
 let accum = 0;
 a = [...changelist]
         .map(part => {return part == "("?1:-1})

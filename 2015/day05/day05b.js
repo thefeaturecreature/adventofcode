@@ -1,5 +1,5 @@
 const aoc = require('../lib/aoc.js');
-const sortlist = inputfile('./day05.txt', true);
+const sortlist = inputfile('./day05.txt');
 let nicelist = new Set,
     nicepair = false,
     nicesplit = false;
