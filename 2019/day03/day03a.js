@@ -3,9 +3,9 @@ const wires = inputfile('./day03.txt');
 
 plotwire = (pair, index) => {
     wire = pair[index].split(',')
-    let wirepath = new Set();
+    let wirepath = new Set(),
     x = 0,
-    y = 0;
+    y = 0,
     closest = false;
     wire.forEach(plot => {
         direction = plot.charAt(0);
@@ -41,7 +41,7 @@ findpath = (match) => {
 processwires = pair => {
     wirepath = plotwire(pair, 0);  
     wirepath2 = plotwire(pair, 1);
-    var closest;
+    let closest;
     [...wirepath]
         .filter(a => {return wirepath2.has(a)})
         .forEach(match => { if(!closest || findpath(match) < closest) closest = findpath(match) })
