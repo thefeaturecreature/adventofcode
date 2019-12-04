@@ -1,7 +1,7 @@
 const aoc = require('../lib/aoc.js');
 const dictlow = 367479;
 const dicthigh = 893698;
-let valid = new Set();
+let valid = 0;
 
 for(i = dictlow; i <= dicthigh; i++) {
     magic = String(i);
@@ -14,7 +14,7 @@ for(i = dictlow; i <= dicthigh; i++) {
         ||  magic.split(magic.charAt(2)).length == 3
         ||  magic.split(magic.charAt(3)).length == 3
         ||  magic.split(magic.charAt(4)).length == 3 )) {
-            valid.add(magic)
+            valid++
     }
 }
-console.log(valid.size)
+console.log(valid)

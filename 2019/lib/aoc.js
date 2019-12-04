@@ -16,13 +16,13 @@ String.prototype.count=function(c) {
 };
 
 Number.prototype.count=function(c) {
-  let digits = [],
+  let digits = 0,
       length = Math.floor(Math.log(this) / Math.LN10);
   for(i=0;i<=length;i++){
       digit = Math.floor(Number(this) / Math.pow(10,length - i ) % 10)
-      if(digit != c) digits.push(digit)
+      if(digit != c) digits++
   }
-  return length - digits.length + 1
+  return digits
 }
 
 Number.prototype.digitAt =function(c) {

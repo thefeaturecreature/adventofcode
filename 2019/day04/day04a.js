@@ -1,7 +1,7 @@
 const aoc = require('../lib/aoc.js');
 const dictlow = 367479;
 const dicthigh = 893698;
-let valid = new Set();
+let valid = 0;
 
 for(i = dictlow; i <= dicthigh; i++) {
     magic = String(i);
@@ -14,7 +14,12 @@ for(i = dictlow; i <= dicthigh; i++) {
         ||  magic.count(i.digitAt(2)) > 2 
         ||  magic.count(i.digitAt(3)) > 2 
         ||  magic.count(i.digitAt(4)) > 2 )) {
-            valid.add(magic)
+            valid++
     }  
 }
-console.log(valid.size)
+console.log(valid)
+
+/*
+Refactored this to use custom prototypes to experiment with custom prototypes. 
+It is slower than the string conversion for all parameters in the conditional used in part b.
+*/
