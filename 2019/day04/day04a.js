@@ -5,17 +5,15 @@ let valid = new Set();
 
 for(i = dictlow; i <= dicthigh; i++) {
     magic = String(i);
-    if(    magic.charAt(0) <= magic.charAt(1)
-        && magic.charAt(1) <= magic.charAt(2)
-        && magic.charAt(2) <= magic.charAt(3)
-        && magic.charAt(3) <= magic.charAt(4)
-        && magic.charAt(4) <= magic.charAt(5)
-        && (magic.split(magic.charAt(0)).length > 2 
-        ||  magic.split(magic.charAt(1)).length > 2 
-        ||  magic.split(magic.charAt(2)).length > 2 
-        ||  magic.split(magic.charAt(3)).length > 2 
-        ||  magic.split(magic.charAt(4)).length > 2 
-        ||  magic.split(magic.charAt(5)).length > 2 )) {
+    if(    i.digitAt(0) <= i.digitAt(1)
+        && i.digitAt(1) <= i.digitAt(2)
+        && i.digitAt(2) <= i.digitAt(3)
+        && i.digitAt(3) <= i.digitAt(4)
+        && i.digitAt(4) <= i.digitAt(5)
+        && (magic.count(i.digitAt(1)) > 2 
+        ||  magic.count(i.digitAt(2)) > 2 
+        ||  magic.count(i.digitAt(3)) > 2 
+        ||  magic.count(i.digitAt(4)) > 2 )) {
             valid.add(magic)
     }  
 }

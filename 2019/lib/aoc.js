@@ -11,6 +11,24 @@ allcompare = (input, callback) => {
   })
 }
 
+String.prototype.count=function(c) { 
+  return this.split(c).length
+};
+
+Number.prototype.count=function(c) {
+  let digits = [],
+      length = Math.floor(Math.log(this) / Math.LN10);
+  for(i=0;i<=length;i++){
+      digit = Math.floor(Number(this) / Math.pow(10,length - i ) % 10)
+      if(digit != c) digits.push(digit)
+  }
+  return length - digits.length + 1
+}
+
+Number.prototype.digitAt =function(c) {
+  return  Math.floor(Number(this) / Math.pow(10,(Math.floor(Math.log(this) / Math.LN10)) - c ) % 10);
+}
+
 knothash = (array, current, step) => {
   let asize = array.length;
   let sliceend = current + step;

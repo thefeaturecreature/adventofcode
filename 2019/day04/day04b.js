@@ -10,12 +10,10 @@ for(i = dictlow; i <= dicthigh; i++) {
         && magic.charAt(2) <= magic.charAt(3)
         && magic.charAt(3) <= magic.charAt(4)
         && magic.charAt(4) <= magic.charAt(5)
-        && (magic.split(magic.charAt(0)).length == 3 
-        ||  magic.split(magic.charAt(1)).length == 3
+        && (magic.split(magic.charAt(1)).length == 3
         ||  magic.split(magic.charAt(2)).length == 3
         ||  magic.split(magic.charAt(3)).length == 3
-        ||  magic.split(magic.charAt(4)).length == 3
-        ||  magic.split(magic.charAt(5)).length == 3 )) {
+        ||  magic.split(magic.charAt(4)).length == 3 )) {
             valid.add(magic)
     }
 }
