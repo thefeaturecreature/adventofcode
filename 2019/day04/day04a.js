@@ -1,28 +1,25 @@
 const aoc = require('../lib/aoc.js');
 const dictlow = 367479;
 const dicthigh = 893698;
-let valid = new Set();
-
-processpassword = magic => {
-    magic = String(magic)
-    digits = [...magic];
-    if(digits[0] <= digits[1]
-        && digits[1] <= digits[2]
-        && digits[2] <= digits[3]
-        && digits[3] <= digits[4]
-        && digits[4] <= digits[5]
-        && ( magic.split(digits[0]).length > 2 
-        ||  magic.split(digits[1]).length > 2 
-        ||  magic.split(digits[2]).length > 2 
-        ||  magic.split(digits[3]).length > 2 
-        ||  magic.split(digits[4]).length > 2 
-        ||  magic.split(digits[5]).length > 2 
-        ||  magic.split(digits[6]).length > 2 )) {
-            valid.add(magic)
-    }    
-}
+let valid = 0;
 
 for(i = dictlow; i <= dicthigh; i++) {
-    processpassword(i)
+    magic = String(i);
+    if(    i.digitAt(0) <= i.digitAt(1)
+        && i.digitAt(1) <= i.digitAt(2)
+        && i.digitAt(2) <= i.digitAt(3)
+        && i.digitAt(3) <= i.digitAt(4)
+        && i.digitAt(4) <= i.digitAt(5)
+        && (magic.count(i.digitAt(1)) > 2 
+        ||  magic.count(i.digitAt(2)) > 2 
+        ||  magic.count(i.digitAt(3)) > 2 
+        ||  magic.count(i.digitAt(4)) > 2 )) {
+            valid++
+    }  
 }
-console.log(valid.size)
+console.log(valid)
+
+/*
+Refactored this to use custom prototypes to experiment with custom prototypes. 
+It is slower than the string conversion for all parameters in the conditional used in part b.
+*/
