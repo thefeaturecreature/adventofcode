@@ -1,0 +1,21 @@
+const aoc = require('../../lib/aoc.js');
+const dictlow = 367479;
+const dicthigh = 893698;
+let valid = 0;
+
+for(i = dictlow; i <= dicthigh; i++) {
+    magic = String(i);
+    if(    magic.charAt(0) <= magic.charAt(1)
+        && magic.charAt(1) <= magic.charAt(2)
+        && magic.charAt(2) <= magic.charAt(3)
+        && magic.charAt(3) <= magic.charAt(4)
+        && magic.charAt(4) <= magic.charAt(5)
+        && (magic.split(magic.charAt(1)).length == 3
+        ||  magic.split(magic.charAt(2)).length == 3
+        ||  magic.split(magic.charAt(3)).length == 3
+        ||  magic.split(magic.charAt(4)).length == 3 )) {
+            valid++;
+    }
+}
+console.log(valid);
+// Answer: 305
