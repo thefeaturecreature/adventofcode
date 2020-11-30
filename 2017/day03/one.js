@@ -1,6 +1,6 @@
 const input = 289326
 
-let plotter = target =>{
+const plotter = target =>{
   const runner = Math.round(Math.sqrt(target));
   const lower = (runner * (runner - 1)) + 1;
   const higher = runner * (runner + 1);
@@ -28,9 +28,7 @@ let plotter = target =>{
   return [x, y];
 }
 
-let steps = plot =>{
-  return Math.abs(plot[0]) + Math.abs(plot[1]);
-}
+const steps = plot => Math.abs(plot[0]) + Math.abs(plot[1]);
 
 console.log(steps(plotter(input)));
 // answer: 419

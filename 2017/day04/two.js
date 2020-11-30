@@ -3,8 +3,8 @@ const spread = inputfile('input.txt');
 let bad, 
     checksum = 0;
 
-spread.forEach((element) => {
-    let words = element.split(' ').sort();
+const spreadproc = spread.forEach(e => {
+    let words = e.split(' ').sort();
     bad = 0;
     allcompare(words, (wordA, wordB, indexA, indexB) => {
         if ((bad == 0 && indexA != indexB) 

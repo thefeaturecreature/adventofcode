@@ -1,13 +1,14 @@
 const input = 289326;
-let grid = {};
-
-let total = 0;
-let layer = 1;
 const center = 5;
-let direction = 'right';
-let x = center;
-let y = center;
-let current = (x * 10) + y;
+
+let grid = {},
+    total = 0,
+    layer = 1,
+    direction = 'right',
+    x = center,
+    y = center,
+    current = (x * 10) + y;
+    
 grid[current] = 1;
 
 while (total <= input ) {

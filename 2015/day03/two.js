@@ -7,7 +7,7 @@ let collector = new Set,
     santax = 0,
     santay = 0;
 
-    [...directions]
+const present = [...directions]
     .forEach((part, index) => {
         if(index % 2 == 0) {
             switch (part) {
@@ -40,6 +40,7 @@ let collector = new Set,
                     break;
             }
         }
+
         house = botx + "x" + boty;
         if(!collector.has(house)) {
             collector.add(house);
@@ -49,6 +50,7 @@ let collector = new Set,
         if(!collector.has(bothouse)) {
             collector.add(bothouse);
         }
-})
+    });
+
 console.log(collector.size);
 // answer: 2639

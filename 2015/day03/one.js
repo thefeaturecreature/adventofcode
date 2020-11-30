@@ -1,10 +1,11 @@
 const aoc = require('../../lib/aoc.js');
 const directions = inputfile('input.txt', false);
+
 let collector = new Set,
     botx = 0,
     boty = 0;
 
-[...directions]
+const present = [...directions]
     .forEach(part => {
         switch (part) {
             case '^': 
@@ -24,6 +25,7 @@ let collector = new Set,
         if(!collector.has(house)) {
             collector.add(house);
         }
-})
+    });
+
 console.log(collector.size);
 // answer: 2565
