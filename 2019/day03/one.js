@@ -43,7 +43,7 @@ processwires = pair => {
     wirepath2 = plotwire(pair, 1);
     let closest;
     [...wirepath]
-        .filter(a => {return wirepath2.has(a)})
+        .filter(a => wirepath2.has(a))
         .forEach(match => { if(!closest || findpath(match) < closest) closest = findpath(match) })
     return closest;
 }

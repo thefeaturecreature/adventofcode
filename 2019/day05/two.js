@@ -1,4 +1,3 @@
-console.log('=====================================================================')
 const aoc = require('../../lib/aoc.js');
 const computer = inputfile('input.txt', false);
 // computer = '3,225,1,225,6,6,1100,1,238,225,104,0'

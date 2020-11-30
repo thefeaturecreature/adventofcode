@@ -1,4 +1,4 @@
-// TODO: Unfinished at some point. For answer 6731945
+// TODO: Unfinished at some point.
 const aoc = require('../../lib/aoc.js');
 const computer = inputfile('input.txt', false);
 
@@ -62,3 +62,4 @@ let instructions = compute => {
     } while(run)
 }
 instructions(intcode(computer));
+// Answer: 6731945

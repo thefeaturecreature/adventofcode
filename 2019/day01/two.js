@@ -13,7 +13,6 @@ recursefuel = (mass => {
     return fuelweight;
 })
 
-let accum = 0;
 totalfuel = masslist
     .map(mass => recursefuel(mass))
     .reduce((accum, fuel) => {
