@@ -22,7 +22,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/2020/day01/day01a.js"
+            "program": "${workspaceFolder}/2020/day01/one.js"
         }
     ]
 }
