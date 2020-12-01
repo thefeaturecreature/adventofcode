@@ -2,9 +2,11 @@ const aoc = require('../../lib/aoc.js');
 const expenses = inputfile('input.txt');
 
 const errors = expenses.map(e => Number(e))
+    .sort((a,b) => a-b)
     .every((first,i,xp) => {
         let diff = 2020 - first;
-        xp.every((second,j,xp) => {
+        xp.filter(e => e < diff - first && e > first)
+          .every((second,j,xp) => {
             let third = diff - second;
             if(third > 0 
                 && first != second 
