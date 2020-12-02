@@ -3,10 +3,10 @@ const policydoc = inputfile('input.txt');
 
 const validate = passwd => passwd
     .map((e) => {
-        let structure = /(?<first>[\d]+)-(?<second>[\d]+) (?<val>[^:]+): (?<word>[\w]+)/,
-            policy = e.match(structure).groups,
-            first = policy.word.charAt([policy.first - 1]) == policy.val,
-            second = policy.word.charAt([policy.second - 1]) == policy.val;
+        let structure = /([\d]+)-([\d]+) ([\w]): ([\w]+)/,
+            [whole,first,second,val,word] = e.match(structure);
+            first = word.charAt([first - 1]) == val,
+            second = word.charAt([second - 1]) == val;
         return ((first || second) && !(first && second))?1:0;
     })
     .reduce((sum,e) => sum + e);

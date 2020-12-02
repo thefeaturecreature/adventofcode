@@ -5,12 +5,12 @@ const policydoc = inputfile('input.txt');
 
 const validate = passwd => passwd
     .map((e) => {
-        let structure = /(?<min>[\d]+)-(?<max>[\d]+) (?<val>[^:]+): (?<word>[\w]+)/,
-            policy = e.match(structure).groups,
-            preplace = new RegExp(policy.val,'g'),
-            diff = policy.word.length - policy.word.replace(preplace,'').length;
+        let structure = /([\d]+)-([\d]+) ([\w]): ([\w]+)/,
+            [whole,min,max,val,word] = e.match(structure);
+            preplace = new RegExp(val,'g'),
+            diff = word.length - word.replace(preplace,'').length;
 
-        return (diff >= policy.min && diff <= policy.max)?1:0;
+        return (diff >= min && diff <= max)?1:0;
     })
     .reduce((sum,e) => sum + e);
 
