@@ -1,0 +1,46 @@
+hgt (Height) - a number followed by either cm or in:
+If cm, the number must be at least 150 and at most 193.
+If in, the number must be at least 59 and at most 76.
+hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
+ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
+pid (Passport ID) - a nine-digit number, including leading zeroes.
+cid (Country ID) - ignored, missing or not.
+
+byr:1920 iyr:2015 eyr:2022
+hgt:59in hcl:#123abc
+ecl:hzl
+pid:045766238
+
+byr:1920
+iyr:2015
+eyr:2022
+hgt:160cm
+hcl:#123abc
+ecl:hzl
+pid:0457662389
+
+byr:1920
+iyr:2015
+eyr:2022
+hgt:60in
+hcl:#888785
+ecl:hzl
+pid:00000000
+
+byr:1920
+iyr:2015
+eyr:2022
+hgt:70in
+hcl:#888785
+ecl:hzl
+pid:545766238
+
+byr:1920
+iyr:2015
+eyr:2022
+hgt:70in
+hcl:#888785
+ecl:hzl
+pid:545766238
+
+
