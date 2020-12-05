@@ -32,7 +32,7 @@ const validate = passports => passports.map(d =>{
             && pp.hgt.match(/^[\d]{2,3}(cm|in)$/)) {
             if(pp.hgt.match(/cm/)) {
                 let hgt = Number(pp.hgt.replace(/(cm|in)/,""));
-                if(Number(hgt) < 150 || Number(hgt) > 193) return 0
+                if(hgt < 150 || hgt > 193) return 0
             } else { // in
                 let hgt = pp.hgt.replace(/(cm|in)/,"");
                 if(hgt < 59 || hgt > 76) return 0
