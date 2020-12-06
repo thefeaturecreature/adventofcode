@@ -5,7 +5,7 @@ answergroups = answers => answers.map(group=> {
     let collector = new Set(group
         .replace(/\n/g,'')
         .split(''));
-        return collector.size;
+    return collector.size;
     }).reduce((sum,a)=> sum+=a);
 
 console.log(answergroups(answers));
