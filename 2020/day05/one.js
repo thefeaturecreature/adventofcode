@@ -1,3 +1,4 @@
+console.time('erp')
 const aoc = require('../../lib/aoc.js');
 const boardingpasses = inputfile('input.txt');
 
@@ -20,3 +21,4 @@ const scantickets = scans => {
 }
 
 console.log(scantickets(boardingpasses));
+console.timeEnd('erp')
