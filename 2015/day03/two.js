@@ -1,5 +1,5 @@
 const aoc = require('../../lib/aoc.js');
-const directions = inputfile('input.txt', false);
+const directions = inputfile('input.txt','single');
 
 let collector = new Set,
     botx = 0,

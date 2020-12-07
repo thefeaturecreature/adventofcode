@@ -1,5 +1,5 @@
 const aoc = require('../../lib/aoc.js');
-const instructions = inputfile('input.txt', true);
+const instructions = inputfile('input.txt');
 
 // https://regex101.com/r/VBWa6S/1
 gates = instructions.forEach(bitentry => {

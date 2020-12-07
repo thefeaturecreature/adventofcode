@@ -1,5 +1,5 @@
 const aoc = require('../../lib/aoc.js');
-const secret = inputfile('input.txt',false);
+const secret = inputfile('input.txt',"single");
 const jump = secret.length/2;
 
 let stars = source => [...source]
