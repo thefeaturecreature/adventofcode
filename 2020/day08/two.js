@@ -4,25 +4,25 @@ const instructions = inputfile('input.txt');
 
 const stepper = instructions => {
     let accumulator = 0,
-        jumps = new Set(instructions.map((e,i) => (e.match(/jmp/) !== null)?i:'e').filter(e=> e !== 'e'));    
+        jumps = new Set(instructions.map((e,i) => (e.match(/jmp/) !== null)?i:'e').filter(e=> e !== 'e')),
+        prevstep = 0,
+        prevaccum = 0,
+        prevseen = new Set();
 
     do {
-        let current = 0,
-            seen = new Set(),
-            infinite = false,
-            testjump = Array.from(jumps)[0];
-
-            accumulator = 0;
-            jumps.delete(testjump);
+        let current = prevstep,
+            seen = new Set(prevseen),
+            infinite = false;
+            accumulator = prevaccum;
+            alttimeline = false;  
 
         do {
             if (!seen.has(current)) {
                 seen.add(current);
                 instruction = instructions[current];
                 if (instruction === undefined) {
-                    jumps.clear;
+                    jumps.clear();
                     infinite = true;
-                    passval = accumulator;
                 } else {
                     step = instruction.substring(0, 3);
                     value = Number(instruction.match(/(acc|jmp|nop) ([+-]?[\d]+)/)[2]);
@@ -32,7 +32,12 @@ const stepper = instructions => {
                             current += 1;
                             break;
                         case 'jmp':
-                            if(current == testjump) {
+                            if(jumps.has(current) && alttimeline == false) {
+                                jumps.delete(current);
+                                alttimeline = true;
+                                prevstep = current + value;
+                                prevaccum = accumulator;
+                                prevseen = new Set(seen);
                                 current += 1;
                             } else {
                                 current += value;
@@ -48,6 +53,6 @@ const stepper = instructions => {
         } while (infinite == false)
 
     } while (jumps.size !== 0);
-    return passval;
+    return accumulator;
 }
 console.log(stepper(instructions))
