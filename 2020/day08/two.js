@@ -1,18 +1,18 @@
 const aoc = require('../../lib/aoc.js');
 const instructions = inputfile('input.txt');
 
-let passval = 0;
 
 const stepper = instructions => {
-    let jumps = new Set(instructions.map((e,i) => (e.match(/jmp/) !== null)?i:'e').filter(e=> e !== 'e')),
-        passval = 0;    
+    let accumulator = 0,
+        jumps = new Set(instructions.map((e,i) => (e.match(/jmp/) !== null)?i:'e').filter(e=> e !== 'e'));    
 
     do {
-        let accumulator = 0,
-            current = 0,
+        let current = 0,
             seen = new Set(),
-            infinite = false;
+            infinite = false,
             testjump = Array.from(jumps)[0];
+
+            accumulator = 0;
             jumps.delete(testjump);
 
         do {
@@ -46,8 +46,6 @@ const stepper = instructions => {
             } else infinite = true;
 
         } while (infinite == false)
-
-
 
     } while (jumps.size !== 0);
     return passval;
