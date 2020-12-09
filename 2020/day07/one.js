@@ -12,17 +12,17 @@ const findParent = color => {
 const rulecrawler = color => {
     let queue = new Set([color]),
         collector = new Set();
-        do {
-            processing = Array.from(queue)[0];
-            findParent(processing).forEach(bag => {
-                if(!collector.has(bag)){
-                    queue.add(bag); 
-                    collector.add(bag);
-                }
-            })
-            queue.delete(processing)
-        }
-        while (queue.size > 0)
+    do {
+        processing = Array.from(queue)[0];
+        findParent(processing).forEach(bag => {
+            if(!collector.has(bag)){
+                queue.add(bag); 
+                collector.add(bag);
+            }
+        })
+        queue.delete(processing)
+    }
+    while (queue.size > 0)
     return collector.size
 }
 console.log(rulecrawler("shiny gold"))
