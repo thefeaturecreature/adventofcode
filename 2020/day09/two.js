@@ -37,7 +37,6 @@ sumtrain = data => {
         found = false;
 
     do {
-        
             if(sum == target) {      
                 snippet = data.slice(caboose,engine+1).sort((a,b)=>a-b);  
                 summm = snippet.reduce((acc,e)=>acc+e); 
