@@ -1,8 +1,7 @@
 const aoc = require('../../lib/aoc.js');
 const knapsack = inputfile('input.txt');
 
-let found = false,
-    connections = knapsack.length + 1,
+let connections = knapsack.length + 1,
     topvolt = Math.max.apply(null,knapsack) + 3,
     threes = Math.floor(topvolt / 3),
     ones = topvolt - (threes * 3),
