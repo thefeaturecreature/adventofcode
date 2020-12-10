@@ -7,7 +7,7 @@ let found = false,
     threes = Math.floor(topvolt / 3),
     ones = topvolt - (threes * 3),
     sum =  threes + ones;
-
+    
 do {
     threes -= 1;
     ones += 3;
