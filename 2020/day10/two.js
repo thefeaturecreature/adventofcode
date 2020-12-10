@@ -23,7 +23,7 @@ function rFact(num)
       { return num * rFact( num - 1 ); }
 }
 sum = 0;
-num = 44;
+num = spaces;
 for(i=1;i<=num;i++){
 sum += Math.floor(rFact(num) / (rFact(num-i) * rFact(i)));
 console.log("iter:",i,"cal:", Math.floor( rFact(num) / (rFact(num-i) * rFact(i))))
