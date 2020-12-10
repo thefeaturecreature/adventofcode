@@ -5,13 +5,9 @@ let connectors = knapsack.map(e => Number(e));
 connectors.push(0);
 connectors.push(Math.max.apply(null,knapsack) + 3);
 connectors.sort((a,b) => a-b);
-let spaces = connectors.map((e,i,all) => {
-    if(e - all[i - 1] == 1 && all[i + 1] - e == 1 ) {
-        return 1;
-    } else {
-        return 0;
-    }
-}).reduce((sum,a) => sum+a);
+let spaces = connectors
+    .map((e,i,all) => (e - all[i - 1] == 1 && all[i + 1] - e == 1 )?1:0)
+    .reduce((sum,a) => sum+a);
  
 console.log(spaces)
 
