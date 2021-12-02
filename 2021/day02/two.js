@@ -4,7 +4,7 @@ const input = inputfile('input.txt');
 let aim = 0,
     forward = 0,
     depth = 0;
-part1 = input.forEach(e => {
+part2 = input.forEach(e => {
     const [direction, count] = e.split(' ');
     
     switch (direction) {
