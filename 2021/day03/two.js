@@ -4,8 +4,7 @@ const input = inputfile('input.txt');
 let oxygen = input,
     bit = 0;
 do {
-    totalat = position => oxygen
-                                .map(e => parseInt(e.charAt(position)))
+    totalat = position => oxygen.map(e => parseInt(e.charAt(position)))
                                 .reduce((e,f) => e+f);
 
     oxygen = oxygen.filter(e => {
@@ -18,8 +17,7 @@ do {
 let co2 = input,
     cobit = 0;
 do {
-    totalat = position => co2
-                            .map(e => parseInt(e.charAt(position)))
+    totalat = position => co2.map(e => parseInt(e.charAt(position)))
                             .reduce((e,f) => e+f);
 
     co2 = co2.filter(e => {
