@@ -18,7 +18,7 @@ let co2 = input,
     cobit = 0;
 do {
     totalat = position => co2.map(e => parseInt(e.charAt(position)))
-                            .reduce((e,f) => e+f);
+                             .reduce((e,f) => e+f);
 
     co2 = co2.filter(e => {
         lesserat = position => totalat(position)>=(co2.length/2)?0:1;        
