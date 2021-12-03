@@ -1,4 +1,3 @@
-const { arrayBuffer } = require('stream/consumers');
 const aoc = require('../../lib/aoc.js');
 const input = inputfile('input.txt');
 
@@ -22,7 +21,7 @@ do {
     totalat = position => co2
                             .map(e => parseInt(e.charAt(position)))
                             .reduce((e,f) => e+f);
-                            
+
     co2 = co2.filter(e => {
         lesserat = position => totalat(position)>=(co2.length/2)?0:1;        
         return e.charAt(cobit) == lesserat(cobit);
