@@ -1,4 +1,3 @@
-const { arrayBuffer } = require('stream/consumers');
 const aoc = require('../../lib/aoc.js');
 const input = inputfile('input.txt');
 
