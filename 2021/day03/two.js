@@ -9,7 +9,6 @@ lesserat = (array, position) => totalat(array, position)>=(array.length/2)?0:1;
 
 let oxygen = input,
     bit = 0;
-
 do {
     oxygen = oxygen.filter(e => e.charAt(bit) == greaterat(oxygen, bit));
     bit++;
