@@ -11,15 +11,15 @@ let oxygen = input,
     bit = 0;
 
 do {
-    oxygen = oxygen.filter(e => e.charAt(bit) == greaterat(oxygen, bit))    
-    bit++
+    oxygen = oxygen.filter(e => e.charAt(bit) == greaterat(oxygen, bit));
+    bit++;
 } while(oxygen.length > 1)
 
 let co2 = input,
     cobit = 0;
 do {
     co2 = co2.filter(e => e.charAt(cobit) == lesserat(co2, cobit));
-    cobit++
+    cobit++;
 } while(co2.length > 1)
 
 console.log(parseInt(oxygen,2) * parseInt(co2,2));
