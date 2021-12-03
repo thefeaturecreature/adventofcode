@@ -2,7 +2,7 @@ const aoc = require('../../lib/aoc.js');
 const input = inputfile('input.txt');
 
 totalat = (arr, position) => arr.map(e => parseInt(e.charAt(position)))
-                            .reduce((e,f) => e+f);
+                                .reduce((e,f) => e+f);
 
 greaterat = (arr, position) => totalat(arr, position)>=(arr.length/2)?1:0;
 lesserat = (arr, position) => totalat(arr, position)>=(co2.length/2)?0:1;        
