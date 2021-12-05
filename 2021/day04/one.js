@@ -1,7 +1,7 @@
 const { arrayBuffer } = require('stream/consumers');
 const aoc = require('../../lib/aoc.js');
-const numbers = inputfile('input.txt', false, ',').entries();
-const boards = inputfile('input2.txt').filter(e => e.length !== 0).map(e=> e.trim().replace(/ $/,'').replace(/[\s]+/gm,',').replace(/$/,','));
+const numbers = inputfile('numbers.txt', false, ',').entries();
+const boards = inputfile('boards.txt').filter(e => e.length !== 0).map(e=> e.trim().replace(/ $/,'').replace(/[\s]+/gm,',').replace(/$/,','));
 
 var hboards = () => { 
     let hboards = [];

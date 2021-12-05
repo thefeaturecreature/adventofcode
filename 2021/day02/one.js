@@ -1,9 +1,9 @@
 const aoc = require('../../lib/aoc.js');
-const input = inputfile('input.txt');
+const course = inputfile('course.txt');
 
 let forward = 0,
     depth = 0;
-part1 = input.forEach(e => {
+part1 = course.forEach(e => {
     const [direction, count] = e.split(' ');
     
     switch (direction) {

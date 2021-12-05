@@ -1,5 +1,5 @@
 const aoc = require('../../lib/aoc.js');
-const input = inputfile('input.txt');
+const diagnostic = inputfile('diagnostic.txt');
 
 const totalat = (array, position) => array.map(e => parseInt(e.charAt(position)))
                                           .reduce((e,f) => e+f);
@@ -7,7 +7,7 @@ const totalat = (array, position) => array.map(e => parseInt(e.charAt(position))
 const greaterat = (array, position) => totalat(array, position)>=(array.length/2)?1:0;
 const lesserat = (array, position) => totalat(array, position)>=(array.length/2)?0:1;        
 
-let oxygen = input,
+let oxygen = diagnostic,
     bit = 0;
 do {
     const greater = greaterat(oxygen, bit);
@@ -15,7 +15,7 @@ do {
     bit++;
 } while(oxygen.length > 1)
 
-let co2 = input,
+let co2 = diagnostic,
     cobit = 0;
 do {
     const lesser = lesserat(co2, cobit);
