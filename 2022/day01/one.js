@@ -1,5 +1,5 @@
 const aoc = require('../../lib/aoc.js');
-const report = inputfile('data.txt');
+const report = inputfile('test.txt');
 
 
 
